@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "GPT 번역 & 요약 도우미",
+  "version": "1.0",
+  "description": "ChatGPT를 사용하여 웹페이지의 텍스트를 번역하고 요약합니다.",
+  "permissions": [
+    "contextMenus",
+    "storage",
+    "notifications",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://api.openai.com/"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "options_page": "options.html"
+}
